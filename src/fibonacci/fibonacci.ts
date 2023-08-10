@@ -12,7 +12,7 @@ function getFibonacciClient() {
 		return count
 	}
 
-	async function callback(message: any): Promise<number> {
+	async function callback(message: number): Promise<number> {
 		if (typeof (message) !== 'number') {
 			throw new Error(`/${CHANNEL_NAME}: request body is not a number`)
 		}
@@ -25,7 +25,7 @@ function getFibonacciClient() {
 	}
 
 	const consumer = new ConsumerClient()
-	consumer.openChannel(CHANNEL_NAME, callback)
+	consumer.openChannel<number>(CHANNEL_NAME, callback)
 
 	return consumer
 }

@@ -41,7 +41,7 @@ class ConsumerClient extends QueueClient {
 		this.consumers = []
 	}
 
-	openChannel(channel: string, callback: (message: any) => Promise<any>) {
+	openChannel<T>(channel: string, callback: (message: T) => Promise<any>) {
 		const consumer = this.rabbit.createConsumer({
 			queue: channel,
 			// handle 2 messages at a time
