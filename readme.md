@@ -25,6 +25,10 @@ Required environment variables:
 	HTTP_PORT
 	AMQP_URL
 
+## Project structure
+
+The project is divided into 2 separate structures corresponding to their microservice that can run independently. Service `M1` is run by `src/httpService.ts` (with related code located in `src/http`), and service `M2` is run by `src/fibonacciService.ts` (with related code located in `src/fibonacci`). Shared code (logging, shutdown handling, queue handling) is located in `src/util`.
+
 ## API Reference
 
 ### GET `/fibonacci`
